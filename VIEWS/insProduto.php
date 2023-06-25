@@ -39,15 +39,15 @@
       <div class="row">
             <form action="recProduto.php" method="POST" id="cadProduto" class="col s12">
               <div class="input-field col s8">
-                  <input id="descr" type="text" name="descr">
+                  <input id="descr" type="text" name="descr" required>
                   <label for="descr" class="black-text bold" >Descrição</label>
               </div>
               <div class="input-field col s8">
-                  <input id="qtdDisp" type="number" name="qtdDisp">
+                  <input id="qtdDisp" type="number" name="qtdDisp" required>
                   <label for="qtdDisp" class="black-text bold" >Quantidade</label>
               </div>
               <div class="input-field col s8">
-                  <input id="prVenda" type="number" name="prVenda">
+                  <input id="prVenda" type="number" name="prVenda" required>
                   <label for="prVenda" class="black-text bold" >Preço de venda</label>
               </div>
                 <div class="lighten-3 center col s12">

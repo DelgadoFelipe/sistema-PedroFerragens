@@ -52,15 +52,15 @@ $item = $bll->SelectID($id);
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="descr" type="text" name="descr" value="<?php echo $item->getDescr() ?>">
+                    <input id="descr" type="text" name="descr" required value="<?php echo $item->getDescr() ?>">
                     <label for="descr" class="black-text bold">Descrição</label>
                 </div>
                 <div class="input-field col s8">
-                    <input id="qtdDisp" type="number" name="qtdDisp" value="<?php echo $item->getQtdDisp() ?>">
+                    <input id="qtdDisp" type="number" name="qtdDisp" required value="<?php echo $item->getQtdDisp() ?>">
                     <label for="qtdDisp" class="black-text bold">Quantidade disponível</label>
                 </div>
                 <div class="input-field col s8">
-                    <input id="prVenda" type="number" name="prVenda" value="<?php echo $item->getPrVenda() ?>">
+                    <input id="prVenda" type="number" name="prVenda" required value="<?php echo $item->getPrVenda() ?>">
                     <label for="prVenda" class="black-text bold">Preço de Venda</label>
                 </div>
 

@@ -18,9 +18,7 @@
 
         public function Insert (\MODEL\Ods $ods){
            $dal = new \DAL\dalOds(); 
-
            $dal->Insert($ods);
-          
         }
 
         public function Update (\MODEL\Ods $ods){

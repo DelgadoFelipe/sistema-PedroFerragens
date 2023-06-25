@@ -50,7 +50,7 @@ $user = $bll->SelectID($id);
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="user" type="text" name="user" value="<?php echo $user->getUser() ?>">
+                    <input id="user" type="text" name="user" required value="<?php echo $user->getUser() ?>">
                     <label for="user" class="black-text bold">Nome de Usuário</label>
                 </div>
                 <div class="input-field col s8">

@@ -1,17 +1,14 @@
 <?php 
    namespace MODEL;
 
-use DateTime;
-
    class Ods{
         private ?int $id;
-        private ?int $cod_cft;
         private ?string $nome_cft;
-        private ?string $data_ab; 
-        private ?string $hora_ab; 
+        private ?string $dataAb; 
+        private ?string $horaAb; 
         private ?float $valor;
-        private ?int $id_produto;
-        private ?string $descr_produto;
+        private ?int $idProduto;
+        private ?string $descrProduto;
         
         public function __construct() 
         {
@@ -25,15 +22,6 @@ use DateTime;
             $this->id = $id; 
         }
 
-        public function getCodCft() {
-            return $this->cod_cft; 
-        }
-
-        public function setCodCft(int $cod_cft){
-            $this->cod_cft = $cod_cft; 
-        }
-
-
         public function getNomeCft() {
             return $this->nome_cft; 
         }
@@ -43,19 +31,19 @@ use DateTime;
         }
 
         public function getDataAb(){
-            return $this->data_ab; 
+            return $this->dataAb; 
         }
 
-        public function setDataAb(string $data_ab){
-            $this->data_ab = $data_ab; 
+        public function setDataAb(string $dataAb){
+            $this->dataAb = $dataAb; 
         }
 
         public function getHoraAb() {
-            return $this->hora_ab;
+            return $this->horaAb;
         }
 
-        public function setHoraAb(string $hora_ab){
-            $this->hora_ab = $hora_ab; 
+        public function setHoraAb(string $horaAb){
+            $this->horaAb = $horaAb; 
         }
 
         public function getValor(){
@@ -67,19 +55,19 @@ use DateTime;
         }
 
         public function getIdProduto(){
-            return $this->id_produto; 
+            return $this->idProduto; 
         }
 
-        public function setIdProduto(int $id_produto){
-            $this->id_produto = $id_produto; 
+        public function setIdProduto(int $idProduto){
+            $this->idProduto = $idProduto; 
         }
 
         public function getDescrProd(){
-            return $this->descr_produto; 
+            return $this->descrProduto; 
         }
 
-        public function setDescrProd(string $descr_produto){
-            $this->descr_produto = $descr_produto; 
+        public function setDescrProd(string $descrProduto){
+            $this->descrProduto = $descrProduto; 
         }
         
    }

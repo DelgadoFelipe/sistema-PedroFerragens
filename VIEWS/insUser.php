@@ -39,7 +39,7 @@
       <div class="row">
             <form action="recUsuario.php" method="POST" id="cadUsuario" class="col s12">
               <div class="input-field col s8">
-                  <input id="user" type="text" name="user">
+                  <input id="user" type="text" name="user" required>
                   <label for="user" class="black-text bold" >Nome de Usuário</label>
               </div>
               <div class="input-field col s8">

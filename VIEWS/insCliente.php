@@ -39,7 +39,7 @@
       <div class="row">
             <form action="recCliente.php" method="POST" id="cadCliente" class="col s12">
               <div class="input-field col s8">
-                  <input id="nomeReal" type="text" name="descr">
+                  <input id="nomeReal" type="text" name="descr" required>
                   <label for="nomeReal" class="black-text bold" >Nome/Razão Social</label>
               </div>
               <div class="input-field col s8">
@@ -67,7 +67,7 @@
                   <label for="tel" class="black-text bold" >Telefone/Celular</label>
               </div>
               <div class="input-field col s8">
-                  <input id="cpf" type="text" name="cpf">
+                  <input id="cpf" type="text" name="cpf" required>
                   <label for="cpf" class="black-text bold" >CPF/CNPJ</label>
               </div>
                 <div class="lighten-3 center col s12">

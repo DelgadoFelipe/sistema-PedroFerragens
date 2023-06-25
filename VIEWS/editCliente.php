@@ -53,7 +53,7 @@ $cliente = $bll->SelectID($id);
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="nomeReal" type="text" name="descr" value="<?php echo $cliente->getDescr() ?>">
+                    <input id="nomeReal" type="text" name="descr" required value="<?php echo $cliente->getDescr() ?>">
                     <label for="nomeReal" class="black-text bold">Nome/Razão social</label>
                 </div>
                 <div class="input-field col s8">
@@ -83,7 +83,7 @@ $cliente = $bll->SelectID($id);
                     <label for="tel" class="black-text bold">Telefone/Celular</label>
                 </div>
                 <div class="input-field col s8">
-                    <input id="cpf" type="text" name="cpf" value="<?php echo $cliente->getCpf() ?>">
+                    <input id="cpf" type="text" name="cpf" required value="<?php echo $cliente->getCpf() ?>">
                     <label for="cpf" class="black-text bold">CPF/CNPJ</label>
                 </div>
 

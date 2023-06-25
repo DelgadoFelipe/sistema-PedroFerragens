@@ -22,13 +22,12 @@ use MODEL\Ods;
                $ods = new \MODEL\Ods();
 
                $ods->setId($linha['id']); 
-               $ods->setCodCft($linha['cod_cft']);
-               $ods->setNomeCft($linha['nome_cft']); 
-               $ods->setDataAb($linha['data_ab']);
-               $ods->setHoraAb($linha['hora_ab']);
+               $ods->setNomeCft($linha['nomeCft']); 
+               $ods->setDataAb($linha['dataAb']);
+               $ods->setHoraAb($linha['horaAb']);
                $ods->setValor($linha['valor']);
-               $ods->setIdProduto($linha['id_produto']);
-               $ods->setDescrProd($linha['descr_produto']);
+               $ods->setIdProduto($linha['idProduto']);
+               $ods->setDescrProd($linha['descrProduto']);
                $lstOds[]= $ods; 
           }
           return $lstOds;   
@@ -44,33 +43,33 @@ use MODEL\Ods;
 
             $ods = new \MODEL\Ods();
             $ods->setId($linha['id']); 
-            $ods->setCodCft($linha['cod_cft']);
-            $ods->setNomeCft($linha['nome_cft']); 
-            $ods->setDataAb($linha['data_ab']);
-            $ods->setHoraAb($linha['hora_ab']);
+            $ods->setNomeCft($linha['nomeCft']); 
+            $ods->setDataAb($linha['dataAb']);
+            $ods->setHoraAb($linha['horaAb']);
             $ods->setValor($linha['valor']);
-            $ods->setIdProduto($linha['id_produto']);
-            $ods->setDescrProd($linha['descr_produto']);
+            $ods->setIdProduto($linha['idProduto']);
+            $ods->setDescrProd($linha['descrProduto']);
             return $ods; 
         }
 
         public function Insert(\MODEL\Ods $ods){
             $con = Conexao::conectar(); 
-            $sql = "INSERT INTO ordem_servico (cod_cft, nome_cft, data_ab, hora_ab, valor, id_produto, descr_produto) 
-                   VALUES  ('{$ods->getCodCft()}', '{$ods->getNomeCft()}','{$ods->getDataAb()}', '{$ods->getHoraAb()},
+            $sql = "INSERT INTO ordem_servico (nomeCft, dataAb, horaAb, valor, idProduto, descrProduto) 
+                   VALUES  ('{$ods->getNomeCft()}', '{$ods->getDataAb()}', '{$ods->getHoraAb()}',
                             '{$ods->getValor()}', '{$ods->getIdProduto()}', '{$ods->getDescrProd()}');";
+            print $sql;
             $result = $con->query($sql); 
             $con = Conexao::desconectar();  
             return $result; 
         }
 
         public function Update(\MODEL\Ods $ods){
-            $sql = "UPDATE ordem_servico SET cod_cft=?, nome_cft=?, valor=?, id_produto, descr_produto WHERE id=?";
+            $sql = "UPDATE ordem_servico SET nomeCft=?, valor=?, idProduto, descrProduto WHERE id=?";
 
             $pdo = Conexao::conectar(); 
             $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
             $query = $pdo->prepare($sql);
-            $result = $query->execute(array($ods->getCodCft(), $ods->getNomeCft(), $ods->getValor(), $ods->getIdProduto(), $ods->getDescrProd()));
+            $result = $query->execute(array($ods->getNomeCft(), $ods->getValor(), $ods->getIdProduto(), $ods->getDescrProd()));
             $con = Conexao::desconectar();
             return  $result; 
         }
