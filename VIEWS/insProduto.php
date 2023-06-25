@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Cliente</title>
+    <title>Cadastrar Produto</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         
@@ -32,43 +32,23 @@
     </nav>
 
     <div class="center orange" style="height: 4rem; justify-content: center" >
-        <h1 style="color: #fff">Cadastrar Cliente</h1>
+        <h1 style="color: #fff">Cadastrar Produto</h1>
     </div>
 
     <div class="container lighten-5 black-text col s12">
       <div class="row">
-            <form action="recCliente.php" method="POST" id="cadCliente" class="col s12">
+            <form action="recProduto.php" method="POST" id="cadProduto" class="col s12">
               <div class="input-field col s8">
-                  <input id="nomeReal" type="text" name="descr">
-                  <label for="nomeReal" class="black-text bold" >Nome/Razão Social</label>
+                  <input id="descr" type="text" name="descr">
+                  <label for="descr" class="black-text bold" >Descrição</label>
               </div>
               <div class="input-field col s8">
-                  <input id="Fant" type="text" name="fant">
-                  <label for="Fant" class="black-text bold" >Nome Fantasia/Apelido</label>
+                  <input id="qtdDisp" type="number" name="qtdDisp">
+                  <label for="qtdDisp" class="black-text bold" >Quantidade</label>
               </div>
               <div class="input-field col s8">
-                  <input id="cep" type="text" name="cep">
-                  <label for="cep" class="black-text bold" >CEP</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="ender" type="text" name="ender">
-                  <label for="ender" class="black-text bold" >Endereço</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="bairro" type="text" name="bairro">
-                  <label for="bairro" class="black-text bold" >Bairro</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="cidade" type="text" name="cidade">
-                  <label for="cidade" class="black-text bold" >Cidade</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="tel" type="text" name="tel">
-                  <label for="tel" class="black-text bold" >Telefone/Celular</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="cpf" type="text" name="cpf">
-                  <label for="cpf" class="black-text bold" >CPF/CNPJ</label>
+                  <input id="prVenda" type="number" name="prVenda">
+                  <label for="prVenda" class="black-text bold" >Preço de venda</label>
               </div>
                 <div class="lighten-3 center col s12">
                     <br>

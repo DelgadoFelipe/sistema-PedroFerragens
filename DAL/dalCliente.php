@@ -14,7 +14,7 @@ use MODEL\Cliente;
           
           $con = Conexao::conectar(); 
           $sql = "select * from cliente WHERE dump != 1;";
-
+          $lstCliente = [];
           $result = $con->query($sql); 
           $con = Conexao::desconectar();
          

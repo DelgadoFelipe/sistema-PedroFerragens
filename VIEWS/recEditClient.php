@@ -14,8 +14,6 @@
     $cidade = $_POST['cidade'];
     $tel = $_POST['tel'];
     $cpf = $_POST['cpf'];
-
-   $cliente = new \MODEL\Cliente(); 
    
    $sql = "UPDATE cliente SET descr = :descr, fant = :fant, ender = :ender, cep = :cep, bairro = :bairro, cidade = :cidade, telefone = :tel, cgc_cpf = :cpf WHERE id = :id";
 

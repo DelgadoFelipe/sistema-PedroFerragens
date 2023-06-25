@@ -1,10 +1,10 @@
 <?php
 
-use BLL\bllCliente;
+use BLL\bllProduto;
 
-include_once '../BLL/bllCliente.php';
-$bll = new \BLL\bllCliente;
-$lstCliente = $bll->Select();
+include_once '../BLL/bllProduto.php';
+$bll = new \BLL\bllProduto;
+$lstItem = $bll->Select();
 ?>
 
 
@@ -21,7 +21,7 @@ $lstCliente = $bll->Select();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/myStyle.css">
-    <title>Lista de Clientes</title>
+    <title>Lista de Produtos</title>
 </head>
 
 <body>
@@ -38,42 +38,32 @@ $lstCliente = $bll->Select();
         </a>
         </div>  
     </nav>
-    <h1>Lista de Clientes</h1>
+    <h1>Lista de Produtos</h1>
 
     <table class="striped indigo lighten-3">
         <tr>
             <th>ID</th>
-            <th>Nome</th>
-            <th>Nome Fantasia</th>
-            <th>Endereço</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>Cep</th>
-            <th>Telefone</th>
-            <th>Cpf/Cnpj</th>
+            <th>Descrição</th>
+            <th>Quantidade disponível</th>
+            <th>Preço de venda</th>
         </tr>
         <?php
-        foreach ($lstCliente as $cliente) {
+        foreach ($lstItem as $item) {
         ?>
             <tr>
-                <td><?php echo $cliente->getId(); ?></td>
-                <td><?php echo $cliente->getDescr(); ?></td>
-                <td><?php echo $cliente->getFant(); ?></td>
-                <td><?php echo $cliente->getEnder(); ?></td>
-                <td><?php echo $cliente->getBairro(); ?></td>
-                <td><?php echo $cliente->getCidade(); ?></td>
-                <td><?php echo $cliente->getCep(); ?></td>
-                <td><?php echo $cliente->getTelefone(); ?></td>
-                <td><?php echo $cliente->getCpf(); ?></td>
+                <td><?php echo $item->getId(); ?></td>
+                <td><?php echo $item->getDescr(); ?></td>
+                <td><?php echo $item->getQtdDisp(); ?></td>
+                <td><?php echo $item->getPrVenda(); ?></td>
                 <td>
-                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editCliente.php?id=' +
-                        <?php echo $cliente->getId(); ?>">
+                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editProduto.php?id=' +
+                        <?php echo $item->getId(); ?>">
                         <i class="material-icons">edit</i>
                     </a>
                 </td>
                 <td>
-                    <a class="btn-floating btn-small waves-effect waves-light red" onclick="JavaScript:location.href='delCliente.php?id=' +
-                        <?php echo $cliente->getId(); ?>">
+                    <a class="btn-floating btn-small waves-effect waves-light red" onclick="JavaScript:location.href='delProduto.php?id=' +
+                        <?php echo $item->getId(); ?>">
                         <i class="material-icons">delete</i>
                     </a>
                 </td>
@@ -84,7 +74,7 @@ $lstCliente = $bll->Select();
         ?>
     </table>
     <div class="lighten-3 center col s12" style="margin-top: 2rem">
-        <button class="waves-effect waves-light btn green" onclick="JavaScript:location.href='insCliente.php'" style="color: #fff; margin: auto">
+        <button class="waves-effect waves-light btn green" onclick="JavaScript:location.href='insProduto.php'" style="color: #fff; margin: auto">
             Adicionar Novo <i class="material-icons">save</i>
         </button>
     </div>

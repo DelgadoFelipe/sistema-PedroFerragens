@@ -1,10 +1,10 @@
 <?php
 
-use BLL\bllCliente;
+use BLL\bllUser;
 
-include_once '../BLL/bllCliente.php';
-$bll = new \BLL\bllCliente;
-$lstCliente = $bll->Select();
+include_once '../BLL/bllUser.php';
+$bll = new \BLL\bllUser;
+$lstUser = $bll->Select();
 ?>
 
 
@@ -21,7 +21,7 @@ $lstCliente = $bll->Select();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/myStyle.css">
-    <title>Lista de Clientes</title>
+    <title>Lista de Usuários</title>
 </head>
 
 <body>
@@ -31,49 +31,37 @@ $lstCliente = $bll->Select();
             <li><a href="../VIEWS/lstCliente.php">Clientes</a></li>
             <li><a href="../VIEWS/lstItens.php">Produtos</a></li>
             <li><a href="../VIEWS/lstOds.php">Venda</a></li>
-            <li><a href="../VIEWS/lstUsers.php">usuários</a></li>
+            <li><a href="../VIEWS/lstUsers.php">Usuários</a></li>
         </ul>
         <a href="../VIEWS/menu.php" class="right brand-logo">
             <Img src="../VIEWS/assets/logo.jpeg" width="150" height="60">
         </a>
         </div>  
     </nav>
-    <h1>Lista de Clientes</h1>
+    <h1>Lista de Usuários</h1>
 
     <table class="striped indigo lighten-3">
         <tr>
             <th>ID</th>
-            <th>Nome</th>
-            <th>Nome Fantasia</th>
-            <th>Endereço</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>Cep</th>
-            <th>Telefone</th>
-            <th>Cpf/Cnpj</th>
+            <th>Nome de Usuário</th>
+            <th>Senha</th>
         </tr>
         <?php
-        foreach ($lstCliente as $cliente) {
+        foreach ($lstUser as $user) {
         ?>
             <tr>
-                <td><?php echo $cliente->getId(); ?></td>
-                <td><?php echo $cliente->getDescr(); ?></td>
-                <td><?php echo $cliente->getFant(); ?></td>
-                <td><?php echo $cliente->getEnder(); ?></td>
-                <td><?php echo $cliente->getBairro(); ?></td>
-                <td><?php echo $cliente->getCidade(); ?></td>
-                <td><?php echo $cliente->getCep(); ?></td>
-                <td><?php echo $cliente->getTelefone(); ?></td>
-                <td><?php echo $cliente->getCpf(); ?></td>
+                <td><?php echo $user->getId(); ?></td>
+                <td><?php echo $user->getUser(); ?></td>
+                <td><?php echo $user->getPwd(); ?></td>
                 <td>
-                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editCliente.php?id=' +
-                        <?php echo $cliente->getId(); ?>">
+                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editUser.php?id=' +
+                        <?php echo $user->getId(); ?>">
                         <i class="material-icons">edit</i>
                     </a>
                 </td>
                 <td>
-                    <a class="btn-floating btn-small waves-effect waves-light red" onclick="JavaScript:location.href='delCliente.php?id=' +
-                        <?php echo $cliente->getId(); ?>">
+                    <a class="btn-floating btn-small waves-effect waves-light red" onclick="JavaScript:location.href='delUser.php?id=' +
+                        <?php echo $user->getId(); ?>">
                         <i class="material-icons">delete</i>
                     </a>
                 </td>
@@ -84,7 +72,7 @@ $lstCliente = $bll->Select();
         ?>
     </table>
     <div class="lighten-3 center col s12" style="margin-top: 2rem">
-        <button class="waves-effect waves-light btn green" onclick="JavaScript:location.href='insCliente.php'" style="color: #fff; margin: auto">
+        <button class="waves-effect waves-light btn green" onclick="JavaScript:location.href='insUser.php'" style="color: #fff; margin: auto">
             Adicionar Novo <i class="material-icons">save</i>
         </button>
     </div>

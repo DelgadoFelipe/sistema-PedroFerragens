@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Cliente</title>
+    <title>Cadastrar usuários</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         
@@ -32,43 +32,19 @@
     </nav>
 
     <div class="center orange" style="height: 4rem; justify-content: center" >
-        <h1 style="color: #fff">Cadastrar Cliente</h1>
+        <h1 style="color: #fff">Cadastrar usuarios</h1>
     </div>
 
     <div class="container lighten-5 black-text col s12">
       <div class="row">
-            <form action="recCliente.php" method="POST" id="cadCliente" class="col s12">
+            <form action="recUsuario.php" method="POST" id="cadUsuario" class="col s12">
               <div class="input-field col s8">
-                  <input id="nomeReal" type="text" name="descr">
-                  <label for="nomeReal" class="black-text bold" >Nome/Razão Social</label>
+                  <input id="user" type="text" name="user">
+                  <label for="user" class="black-text bold" >Nome de Usuário</label>
               </div>
               <div class="input-field col s8">
-                  <input id="Fant" type="text" name="fant">
-                  <label for="Fant" class="black-text bold" >Nome Fantasia/Apelido</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="cep" type="text" name="cep">
-                  <label for="cep" class="black-text bold" >CEP</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="ender" type="text" name="ender">
-                  <label for="ender" class="black-text bold" >Endereço</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="bairro" type="text" name="bairro">
-                  <label for="bairro" class="black-text bold" >Bairro</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="cidade" type="text" name="cidade">
-                  <label for="cidade" class="black-text bold" >Cidade</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="tel" type="text" name="tel">
-                  <label for="tel" class="black-text bold" >Telefone/Celular</label>
-              </div>
-              <div class="input-field col s8">
-                  <input id="cpf" type="text" name="cpf">
-                  <label for="cpf" class="black-text bold" >CPF/CNPJ</label>
+                  <input id="pwd" type="text" name="pwd">
+                  <label for="pwd" class="black-text bold" >Senha</label>
               </div>
                 <div class="lighten-3 center col s12">
                     <br>
@@ -78,7 +54,7 @@
                     <button class="waves-effect waves-light btn red" type = "reset" style="color: #fff; margin-right: 2rem">
                         Limpar <i class="material-icons">clear_all</i>
                     </button>
-                    <button class="waves-effect waves-light btn blue" type="button" onclick="JavaScript:location.href='lstoperador2.php'" style="color: #fff">
+                    <button class="waves-effect waves-light btn blue" type="button" onclick="JavaScript:location.href='lstUser.php'" style="color: #fff">
                         Voltar <i class="material-icons">arrow_back</i>
                     </button>
                     <br>
@@ -87,10 +63,6 @@
             </form>
       </div>
     </div>
-
-
-
-
 </body>
 
 </html>
