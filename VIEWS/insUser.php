@@ -1,3 +1,12 @@
+<?php
+session_start();
+$token = $_SESSION["token"];
+if ($token == "") {
+    header("location: login.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,8 +34,12 @@
             <li><a href="../VIEWS/lstOds.php">Venda</a></li>
             <li><a href="../VIEWS/lstUsers.php">usuários</a></li>
         </ul>
-        <a href="../VIEWS/menu.php" class="right brand-logo">
-            <Img src="../VIEWS/assets/logo.jpeg" width="150" height="54">
+        <button onclick="voltaLogin()" type="button" class="btn btn-outline-danger" style="margin-left: 55rem; background-color: transparent; text-align:center; justify-content: center; border: 1.4px solid yellow">
+            <p style="line-height: 0px">Logoff</p>
+        </button>
+        
+        <a href="menu.php" class="right brand-logo">
+            <Img src="../VIEWS/assets/logo.jpeg" width="150" height="60">
         </a>
         </div>  
     </nav>
@@ -51,9 +64,6 @@
                     <button class="waves-effect waves-light btn green" type="submit" style="color: #fff; margin-right: 2rem">
                         Cadastrar <i class="material-icons">save</i>
                     </button>
-                    <button class="waves-effect waves-light btn red" type = "reset" style="color: #fff; margin-right: 2rem">
-                        Limpar <i class="material-icons">clear_all</i>
-                    </button>
                     <button class="waves-effect waves-light btn blue" type="button" onclick="JavaScript:location.href='lstUser.php'" style="color: #fff">
                         Voltar <i class="material-icons">arrow_back</i>
                     </button>
@@ -66,3 +76,9 @@
 </body>
 
 </html>
+
+<script>
+    function voltaLogin() {
+        window.location.href = "login.php"
+    }
+</script>

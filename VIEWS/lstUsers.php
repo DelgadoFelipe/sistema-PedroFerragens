@@ -31,20 +31,25 @@ $lstUser = $bll->Select();
             <li><a href="../VIEWS/lstCliente.php">Clientes</a></li>
             <li><a href="../VIEWS/lstItens.php">Produtos</a></li>
             <li><a href="../VIEWS/lstOds.php">Venda</a></li>
-            <li><a href="../VIEWS/lstUsers.php">Usuários</a></li>
+            <li><a href="../VIEWS/lstUsers.php">usuários</a></li>
         </ul>
-        <a href="../VIEWS/menu.php" class="right brand-logo">
+        <button onclick="voltaLogin()" type="button" class="btn btn-outline-danger" style="margin-left: 55rem; background-color: transparent; text-align:center; justify-content: center; border: 1.4px solid yellow">
+            <p style="line-height: 0px">Logoff</p>
+        </button>
+        
+        <a href="menu.php" class="right brand-logo">
             <Img src="../VIEWS/assets/logo.jpeg" width="150" height="60">
         </a>
         </div>  
     </nav>
-    <h1>Lista de Usuários</h1>
+    <h1 style="width: 100%; text-align:center">Lista de Usuários</h1>
 
     <table class="striped indigo lighten-3">
         <tr>
             <th>ID</th>
             <th>Nome de Usuário</th>
-            <th>Senha</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php
         foreach ($lstUser as $user) {
@@ -52,7 +57,6 @@ $lstUser = $bll->Select();
             <tr>
                 <td><?php echo $user->getId(); ?></td>
                 <td><?php echo $user->getUser(); ?></td>
-                <td><?php echo $user->getPwd(); ?></td>
                 <td>
                     <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editUser.php?id=' +
                         <?php echo $user->getId(); ?>">
@@ -80,3 +84,9 @@ $lstUser = $bll->Select();
 </body>
 
 </html>
+
+<script>
+    function voltaLogin() {
+        window.location.href = "login.php"
+    }
+</script>

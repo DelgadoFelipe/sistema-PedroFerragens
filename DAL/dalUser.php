@@ -19,11 +19,11 @@ use MODEL\User;
           $con = Conexao::desconectar();
          
           foreach($result as $linha){
-               $user = new \MODEL\User();
+               $user = new \MODEL\User($user = $linha['id'], $user = $linha['user'], $user = $linha['pwd']);
 
-               $user->setId($linha['id']); 
-               $user->setUser($linha['user']);
-               $user->setPwd($linha['pwd']); 
+            //    $user->setId($linha['id']); 
+            //    $user->setUser($linha['user']);
+            //    $user->setPwd($linha['pwd']); 
                $lstUser[]= $user; 
           }
           return $lstUser;   
@@ -37,10 +37,10 @@ use MODEL\User;
             $linha = $query->fetch(\PDO::FETCH_ASSOC);
             Conexao::desconectar(); 
 
-            $user = new \MODEL\User();
-            $user->setId($linha['id']); 
-            $user->setUser($linha['user']);
-            $user->setPwd($linha['pwd']); 
+            $user = new \MODEL\User($user = $linha['id'], $user = $linha['user'], $user = $linha['pwd']);
+            // $user->setId($linha['id']); 
+            // $user->setUser($linha['user']);
+            // $user->setPwd($linha['pwd']); 
             return $user; 
         }
 
@@ -72,6 +72,40 @@ use MODEL\User;
             $result = $query->execute(array($id)); 
             $con = Conexao::desconectar();
             return  $result; 
+        }
+        
+        public static function selectByLogin(User $user){
+            $login = $user->getUser();
+            $sql = "SELECT * FROM usuarios WHERE user='" . $login . "'";
+            $conn = Conexao::conectar();
+            $result = $conn->query($sql);
+            $conn = Conexao::desconectar();
+            $users = [];
+
+            foreach ($result as $usu) {
+                $user = new User($usu["id"], $usu["user"], $usu["pwd"]);
+                $users[] = $user;
+            }
+
+            if (sizeof($users) > 0) {
+                return $users[0];
+            } else {
+                return false;
+            }
+        }
+
+        public static function verificaSenha(User $user) {
+            $user = dalUser::selectByLogin($user);
+            if ($user) {
+                $pwd = md5($user->getPwd());
+                if (md5($user->getPwd()) === $pwd) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
     }
 

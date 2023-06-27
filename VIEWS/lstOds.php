@@ -1,4 +1,12 @@
 <?php
+session_start();
+$token = $_SESSION["token"];
+if ($token == "") {
+    header("location: login.php");
+}
+?>
+
+<?php
 
 use BLL\bllOds;
 
@@ -33,12 +41,16 @@ $lstOds = $bll->Select();
             <li><a href="../VIEWS/lstOds.php">Venda</a></li>
             <li><a href="../VIEWS/lstUsers.php">usuários</a></li>
         </ul>
-        <a href="../VIEWS/menu.php" class="right brand-logo">
+        <button onclick="voltaLogin()" type="button" class="btn btn-outline-danger" style="margin-left: 55rem; background-color: transparent; text-align:center; justify-content: center; border: 1.4px solid yellow">
+            <p style="line-height: 0px">Logoff</p>
+        </button>
+        
+        <a href="menu.php" class="right brand-logo">
             <Img src="../VIEWS/assets/logo.jpeg" width="150" height="60">
         </a>
         </div>  
     </nav>
-    <h1>Lista de Pedidos</h1>
+    <h1 style="width: 100%; text-align:center">Lista de Pedidos</h1>
 
     <table class="striped indigo lighten-3">
         <tr>
@@ -48,6 +60,8 @@ $lstOds = $bll->Select();
             <th>Valor Venda</th>
             <th>Data</th>
             <th>Hora</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php
         foreach ($lstOds as $ods) {
@@ -86,3 +100,9 @@ $lstOds = $bll->Select();
 </body>
 
 </html>
+
+<script>
+    function voltaLogin() {
+        window.location.href = "login.php"
+    }
+</script>

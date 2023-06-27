@@ -6,8 +6,8 @@
     
     use DAL\Conexao;
 
-    $user = new \MODEL\User(); 
-    $id = $_GET['id']; 
+    $user = new \MODEL\User($id = $_GET['id'], null, null); 
+    // $id = $_GET['id']; 
 
     $sql = "UPDATE usuarios SET dump = '1' WHERE id = :id";
     

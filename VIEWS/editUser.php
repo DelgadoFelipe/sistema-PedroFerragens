@@ -1,4 +1,12 @@
 <?php
+session_start();
+$token = $_SESSION["token"];
+if ($token == "") {
+    header("location: login.php");
+}
+?>
+
+<?php
 include_once 'C:\xampp\htdocs\pedroFerragens-main\BLL\bllUser.php';
 $id = $_GET['id'];
 
@@ -30,7 +38,11 @@ $user = $bll->SelectID($id);
             <li><a href="../VIEWS/lstOds.php">Venda</a></li>
             <li><a href="../VIEWS/lstUsers.php">usuários</a></li>
         </ul>
-        <a href="../VIEWS/menu.php" class="right brand-logo">
+        <button onclick="voltaLogin()" type="button" class="btn btn-outline-danger" style="margin-left: 55rem; background-color: transparent; text-align:center; justify-content: center; border: 1.4px solid yellow">
+            <p style="line-height: 0px">Logoff</p>
+        </button>
+        
+        <a href="menu.php" class="right brand-logo">
             <Img src="../VIEWS/assets/logo.jpeg" width="150" height="60">
         </a>
         </div>  
@@ -53,18 +65,11 @@ $user = $bll->SelectID($id);
                     <input id="user" type="text" name="user" required value="<?php echo $user->getUser() ?>">
                     <label for="user" class="black-text bold">Nome de Usuário</label>
                 </div>
-                <div class="input-field col s8">
-                    <input id="pwd" type="text" name="pwd" value="<?php echo $user->getPwd() ?>">
-                    <label for="pwd" class="black-text bold">Senha</label>
-                </div>
 
                 <div class=" lighten-3 center col s12">
                     <br>
                     <button class="waves-effect waves-light btn green" type="submit" style="margin-right: 2.5rem">
                         Gravar <i class="material-icons">save</i>
-                    </button>
-                    <button class="waves-effect waves-light btn red" style="margin-right: 2.5rem" type="reset">
-                        Limpar <i class="material-icons">clear_all</i>
                     </button>
                     <button class="waves-effect waves-light btn blue" type="button" onclick="JavaScript:location.href='lstItens.php'">
                         Voltar <i class="material-icons">arrow_back</i>
@@ -80,3 +85,9 @@ $user = $bll->SelectID($id);
 </body>
 
 </html>
+
+<script>
+    function voltaLogin() {
+        window.location.href = "login.php"
+    }
+</script>

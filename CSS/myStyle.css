@@ -6,3 +6,12 @@ td {
 a {
     text-decoration: none;
 }
+
+.bannerMenu {
+    background-color: #000;
+    background-image: url(../VIEWS/assets/bannerMenu.jpeg); 
+    height: 43.5rem; 
+    background-size: 100%; 
+    width: 100%; 
+    background-repeat: no-repeat;
+}
