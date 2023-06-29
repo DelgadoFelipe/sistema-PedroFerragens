@@ -76,7 +76,7 @@ use MODEL\User;
         
         public static function selectByLogin(User $user){
             $login = $user->getUser();
-            $sql = "SELECT * FROM usuarios WHERE user='" . $login . "'";
+            $sql = "SELECT * FROM usuarios WHERE user='" . $login . "' And Dump != 1";
             $conn = Conexao::conectar();
             $result = $conn->query($sql);
             $conn = Conexao::desconectar();
